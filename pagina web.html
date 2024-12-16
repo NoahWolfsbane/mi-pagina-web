@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra tu Deporte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .sports-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sports-list li {
+            background: #f0f8ff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .contact {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Encuentra tu Deporte Ideal</h1>
+        <p>Responde algunas preguntas y descubre tu deporte perfecto</p>
+    </header>
+
+    <div class="container">
+        <!-- Formulario inicial -->
+        <div class="section" id="form-section">
+            <h2>Formulario de Preferencias</h2>
+            <form id="preferences-form">
+                <label for="name">Tu nombre:</label>
+                <input type="text" id="name" placeholder="Escribe tu nombre" required>
+
+                <label for="preference">¿Prefieres deportes individuales o en equipo?</label>
+                <select id="preference">
+                    <option value="">Selecciona una opción</option>
+                    <option value="individual">Individual</option>
+                    <option value="equipo">Equipo</option>
+                </select>
+
+                <label for="intensity">¿Qué nivel de intensidad prefieres?</label>
+                <select id="intensity">
+                    <option value="">Selecciona una opción</option>
+                    <option value="baja">Baja</option>
+                    <option value="media">Media</option>
+                    <option value="alta">Alta</option>
+                </select>
+
+                <button type="button" onclick="suggestSports()">Sugerir Deportes</button>
+            </form>
+        </div>
+
+        <!-- Deportes sugeridos -->
+        <div class="section" id="suggestions-section" style="display: none;">
+            <h2>Top 3 Deportes para Ti</h2>
+            <ul class="sports-list" id="sports-list"></ul>
+        </div>
+
+        <!-- Contactos -->
+        <div class="section" id="contact-section" style="display: none;">
+            <h2>Contactos y Lugares para Practicar</h2>
+            <div class="contact">
+                <p><strong>Gimnasio Central:</strong> Avenida Principal, Tel: 123-456-789</p>
+                <p><strong>Club Deportivo:</strong> Calle Secundaria, Tel: 987-654-321</p>
+            </div>
+        </div>
+
+        <!-- Horarios -->
+        <div class="section" id="schedule-section" style="display: none;">
+            <h2>Horarios de Práctica</h2>
+            <p>Selecciona un horario conveniente:</p>
+            <select>
+                <option value="manana">Mañana: 7:00 AM - 9:00 AM</option>
+                <option value="tarde">Tarde: 4:00 PM - 6:00 PM</option>
+                <option value="noche">Noche: 7:00 PM - 9:00 PM</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        function suggestSports() {
+            const name = document.getElementById('name').value;
+            const preference = document.getElementById('preference').value;
+            const intensity = document.getElementById('intensity').value;
+
+            if (!name || !preference || !intensity) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Generar sugerencias (simplificado para el prototipo)
+            const sports = {
+                individual: {
+                    baja: ['Yoga', 'Pilates', 'Natación'],
+                    media: ['Ciclismo', 'Running', 'Artes Marciales'],
+                    alta: ['Escalada', 'CrossFit', 'Atletismo']
+                },
+                equipo: {
+                    baja: ['Bolos', 'Caminatas Grupales', 'Ping Pong'],
+                    media: ['Fútbol', 'Voleibol', 'Básquetbol'],
+                    alta: ['Hockey', 'Rugby', 'Waterpolo']
+                }
+            };
+
+            const suggestedSports = sports[preference][intensity];
+
+            const sportsList = document.getElementById('sports-list');
+            sportsList.innerHTML = '';
+
+            suggestedSports.forEach(sport => {
+                const li = document.createElement('li');
+                li.textContent = sport;
+                sportsList.appendChild(li);
+            });
+
+            // Mostrar secciones relevantes
+            document.getElementById('suggestions-section').style.display = 'block';
+            document.getElementById('contact-section').style.display = 'block';
+            document.getElementById('schedule-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

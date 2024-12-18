@@ -1,185 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuentra tu Deporte Ideal</title>
+    <title>Sugerencias de Deportes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #f4f4f4;
         }
         header {
-            background-color: #0077cc;
-            color: #fff;
-            padding: 20px;
+            background-color: black;
+            color: white;
             text-align: center;
+            padding: 20px 0;
+        }
+        header img {
+            width: 150px;
+            height: auto;
+            margin-top: 10px;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            margin: 20px 0;
-        }
-        .options {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
         }
-        .option {
-            flex: 1 1 calc(50% - 10px);
-            background: #0077cc;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+        h3 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, button {
+            width: 100%;
             padding: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .option:hover {
-            background: #005fa3;
-        }
-        .progress-bar {
-            height: 20px;
-            background: #ddd;
+            margin-bottom: 15px;
             border-radius: 5px;
-            overflow: hidden;
-            margin: 20px 0;
+            border: 1px solid #ccc;
         }
-        .progress {
-            height: 100%;
-            width: 0;
-            background: #0077cc;
-            transition: width 0.3s ease;
-        }
-        .result {
-            display: none;
-            text-align: center;
-        }
-        .result p {
-            font-size: 18px;
-        }
-        .button {
-            background: #0077cc;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+        button {
+            background-color: #4CAF50;
+            color: white;
             cursor: pointer;
-            transition: background 0.3s ease;
         }
-        .button:hover {
-            background: #005fa3;
+        button:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            width: 50%;
+        }
+        .sport-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sport-list li {
+            padding: 10px;
+            background-color: #f4f4f4;
+            margin: 5px 0;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Encuentra tu Deporte Ideal</h1>
-    <p>Responde estas preguntas para descubrir qué deporte es perfecto para ti</p>
-</header>
+    <!-- Encabezado -->
+    <header>
+        <h1>Encuentra el Deporte Ideal para Ti</h1>
+        <!-- Foto de Hu Tao -->
+        <img src="https://github.com/NoahWolfsbane/mi-pagina-web/blob/main/Genshin%20Hu%20Tao.jpeg?raw=true" alt="Hu Tao">
+    </header>
 
-<div class="container">
-    <div id="quiz">
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
+    <!-- Contenedor del formulario -->
+    <div class="container">
+        <div class="form-container">
+            <h3>Por favor, selecciona tus preferencias:</h3>
+
+            <!-- Preguntas sobre modalidad, intensidad y ambiente -->
+            <label for="form">¿Qué tipo de modalidad prefieres?</label>
+            <select id="form">
+                <option value="Individual">Individual</option>
+                <option value="Grupal">Grupal</option>
+                <option value="Mixto">Mixto</option>
+            </select>
+
+            <label for="intensity">¿Qué nivel de intensidad prefieres?</label>
+            <select id="intensity">
+                <option value="Alta">Alta</option>
+                <option value="Moderada">Moderada</option>
+                <option value="Baja">Baja</option>
+            </select>
+
+            <label for="enviroment">¿Dónde prefieres practicar un deporte?</label>
+            <select id="enviroment">
+                <option value="Aire libre">Aire libre</option>
+                <option value="Espacios cerrados">Espacios cerrados</option>
+                <option value="Ambos">Ambos</option>
+            </select>
+
+            <!-- Preguntas sobre características intrínsecas -->
+            <label for="resistance">¿Cuál característica crees que te define más?</label>
+            <select id="resistance">
+                <option value="Resistencia">Resistencia</option>
+                <option value="Fuerza">Fuerza</option>
+                <option value="Velocidad">Velocidad</option>
+                <option value="Coordinación">Coordinación</option>
+                <option value="Flexibilidad">Flexibilidad</option>
+            </select>
+
+            <label for="skill">¿Qué habilidad prefieres destacar en un deporte?</label>
+            <select id="skill">
+                <option value="Puntería">Puntería</option>
+                <option value="Estrategia">Estrategia</option>
+                <option value="Trabajo en equipo">Trabajo en equipo</option>
+                <option value="Dominio corporal">Dominio corporal</option>
+                <option value="Agilidad">Agilidad</option>
+            </select>
+
+            <label for="physicalCharacteristic">¿Qué característica física consideras más importante?</label>
+            <select id="physicalCharacteristic">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Equilibrio">Equilibrio</option>
+                <option value="Resistencia">Resistencia</option>
+                <option value="Velocidad">Velocidad</option>
+                <option value="Flexibilidad">Flexibilidad</option>
+            </select>
+
+            <label for="technicalAspect">¿Qué aspecto técnico valoras más en un deporte?</label>
+            <select id="technicalAspect">
+                <option value="Técnica">Técnica</option>
+                <option value="Precisión">Precisión</option>
+                <option value="Puntería">Puntería</option>
+                <option value="Estrategia">Estrategia</option>
+                <option value="Coordinación">Coordinación</option>
+            </select>
+
+            <label for="bodySport">¿Qué prefieres en un deporte relacionado con el cuerpo?</label>
+            <select id="bodySport">
+                <option value="Resistencia">Resistencia</option>
+                <option value="Fuerza">Fuerza</option>
+                <option value="Agilidad">Agilidad</option>
+                <option value="Velocidad">Velocidad</option>
+                <option value="Dominio corporal">Dominio corporal</option>
+            </select>
+
+            <label for="dynamic">¿Qué tipo de dinámica prefieres en un deporte?</label>
+            <select id="dynamic">
+                <option value="Rápida y explosiva">Rápida y explosiva (Velocidad)</option>
+                <option value="Constante y resistente">Constante y resistente (Resistencia)</option>
+                <option value="Técnica y precisa">Técnica y precisa (Precisión)</option>
+                <option value="Estratégica y planificada">Estratégica y planificada (Estrategia)</option>
+                <option value="Coordinada y fluida">Coordinada y fluida (Coordinación)</option>
+            </select>
+
+            <label for="strength">¿Cuál de estas características crees que es tu mayor fortaleza?</label>
+            <select id="strength">
+                <option value="Resistencia">Resistencia</option>
+                <option value="Velocidad">Velocidad</option>
+                <option value="Fuerza">Fuerza</option>
+                <option value="Agilidad">Agilidad</option>
+                <option value="Flexibilidad">Flexibilidad</option>
+            </select>
+
+            <button onclick="calculateAffinity()">Ver resultados</button>
         </div>
-        <div class="question" id="question">¿Qué habilidad crees que mejor describe tu capacidad física actual?</div>
-        <div class="options" id="options">
-            <button class="option" onclick="selectOption('Resistencia')">Resistencia</button>
-            <button class="option" onclick="selectOption('Velocidad')">Velocidad</button>
-            <button class="option" onclick="selectOption('Fuerza')">Fuerza</button>
-            <button class="option" onclick="selectOption('Agilidad')">Agilidad</button>
-            <button class="option" onclick="selectOption('Reflejos')">Reflejos</button>
+
+        <!-- Resultados -->
+        <div class="result-container" id="result">
+            <!-- Resultados aparecerán aquí -->
         </div>
     </div>
-    <div class="result" id="result">
-        <h2>¡Resultados!</h2>
-        <p id="result-text">Tu deporte ideal es...</p>
-        <button class="button" onclick="restartQuiz()">Intentar de nuevo</button>
-    </div>
-</div>
 
-<script>
-    const questions = [
-        "¿Qué habilidad crees que mejor describe tu capacidad física actual?",
-        "Si pudieras mejorar una de estas habilidades, ¿cuál elegirías?",
-        "¿Qué es lo que más disfrutas al practicar deporte?",
-        "¿Qué tipo de actividad prefieres para mantenerte activo/a?",
-        "¿Qué tipo de entorno prefieres para hacer ejercicio?",
-        "¿Qué intensidad prefieres para una actividad física?",
-        "¿Qué te motiva a continuar haciendo deporte regularmente?",
-        "¿Cómo prefieres organizar tu tiempo para practicar deporte?",
-        "¿Qué tipo de deporte te atrae más?",
-        "¿Qué aspecto del deporte consideras más importante para ti?"
-    ];
+    <script>
+        // Función que calcula la afinidad
+        function calculateAffinity() {
+            // Datos de los deportes y sus características
+            const sports = [
+                {
+                    name: "Fútbol",
+                    form: "Grupal",
+                    intensity: "Alta",
+                    environment: "Aire libre",
+                    characteristics: { resistencia: 12, velocidad: 14, trabajoEnEquipo: 14, estrategia: 14, otros: 6 }
+                },
+                {
+                    name: "Natación",
+                    form: "Individual",
+                    intensity: "Moderada",
+                    environment: "Aire libre",
+                    characteristics: { resistencia: 12, fuerza: 12, disciplina: 6, técnica: 14, otros: 8 }
+                },
+                {
+                    name: "Atletismo",
+                    form: "Individual",
+                    intensity: "Alta",
+                    environment: "Aire libre",
+                    characteristics: { velocidad: 14, potencia: 12, concentración: 10, técnica: 8, otros: 6 }
+                },
+                // Resto de deportes se puede agregar aquí siguiendo el mismo patrón
+            ];
 
-    const optionsPerQuestion = [
-        ["Resistencia", "Velocidad", "Fuerza", "Agilidad", "Reflejos"],
-        ["Explosividad", "Coordinación mano-ojo", "Resistencia", "Velocidad", "Agilidad"],
-        ["Competir y superar a los demás", "Trabajar en equipo", "Concentrarme en mí mismo/a", "Aprender cosas nuevas", "Relajarme y desconectar"],
-        ["Individual", "En equipo", "Mixto", "Competencias", "Recreativo"],
-        ["Al aire libre", "Espacios cerrados", "Mixto", "Ambientes dinámicos", "Cerca de casa"],
-        ["Baja", "Moderada", "Alta", "Variable", "No estoy seguro/a"],
-        ["Lograr metas personales", "Superarme cada día", "La diversión", "El trabajo en equipo", "La competencia"],
-        ["Con horarios fijos", "Con horarios flexibles", "En sesiones cortas", "Con sesiones largas", "De manera espontánea"],
-        ["De equipo", "De precisión", "De contacto", "De aventura", "De técnica y estética"],
-        ["Mejorar mi salud física", "Desarrollar habilidades sociales", "Sentirme mejor mentalmente", "Mejorar mis habilidades físicas", "Divertirme"]
-    ];
+            // Obtener las respuestas del usuario
+            const form = document.getElementById("form").value;
+            const intensity = document.getElementById("intensity").value;
+            const environment = document.getElementById("enviroment").value;
+            const resistance = document.getElementById("resistance").value;
+            const skill = document.getElementById("skill").value;
+            const physicalCharacteristic = document.getElementById("physicalCharacteristic").value;
+            const technicalAspect = document.getElementById("technicalAspect").value;
+            const bodySport = document.getElementById("bodySport").value;
+            const dynamic = document.getElementById("dynamic").value;
+            const strength = document.getElementById("strength").value;
 
-    let currentQuestion = 0;
-    const answers = [];
+            // Calcular la afinidad con cada deporte
+            const results = sports.map(sport => {
+                let affinity = 0;
 
-    function loadQuestion() {
-        document.getElementById("question").textContent = questions[currentQuestion];
-        const optionsContainer = document.getElementById("options");
-        optionsContainer.innerHTML = "";
-        optionsPerQuestion[currentQuestion].forEach(option => {
-            const button = document.createElement("button");
-            button.className = "option";
-            button.textContent = option;
-            button.onclick = () => selectOption(option);
-            optionsContainer.appendChild(button);
-        });
-        document.getElementById("progress").style.width = ((currentQuestion + 1) / questions.length) * 100 + "%";
-    }
+                if (sport.form === form) affinity += 5;
+                if (sport.intensity === intensity) affinity += 5;
+                if (sport.environment === environment) affinity += 5;
 
-    function selectOption(option) {
-        answers.push(option);
-        if (currentQuestion < questions.length - 1) {
-            currentQuestion++;
-            loadQuestion();
-        } else {
-            showResult();
+                // Calcular afinidad de las características
+                for (let characteristic in sport.characteristics) {
+                    affinity += sport.characteristics[characteristic];
+                }
+
+                return { name: sport.name, affinity: affinity };
+            });
+
+            // Ordenar los resultados por afinidad descendente
+            results.sort((a, b) => b.affinity - a.affinity);
+
+            // Mostrar resultados
+            let resultHTML = "<h3>Deportes recomendados:</h3><ul class='sport-list'>";
+            results.forEach(sport => {
+                resultHTML += `<li>${sport.name} - Afinidad: ${sport.affinity}%</li>`;
+            });
+            resultHTML += "</ul>";
+
+            document.getElementById("result").innerHTML = resultHTML;
         }
-    }
-
-    function showResult() {
-        document.getElementById("quiz").style.display = "none";
-        document.getElementById("result").style.display = "block";
-        document.getElementById("result-text").textContent = "Tus respuestas indican una alta afinidad con ciertos deportes. ¡Consulta los resultados detallados pronto!";
-    }
-
-    function restartQuiz() {
-        currentQuestion = 0;
-        answers.length = 0;
-        document.getElementById("result").style.display = "none";
-        document.getElementById("quiz").style.display = "block";
-        loadQuestion();
-    }
-
-    window.onload = loadQuestion;
-</script>
+    </script>
 
 </body>
 </html>

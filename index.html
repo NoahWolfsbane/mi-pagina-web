@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuentra tu Deporte</title>
+    <title>Encuentra tu Deporte Ideal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,171 +12,174 @@
             background-color: #f4f4f9;
             color: #333;
         }
-
         header {
-            background-color: #007bff;
+            background-color: #0077cc;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
-
         .container {
-            padding: 20px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
+            padding: 20px;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .section {
-            margin-bottom: 30px;
+        .question {
+            margin: 20px 0;
         }
-
-        .section h2 {
-            color: #007bff;
-            margin-bottom: 10px;
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+        .option {
+            flex: 1 1 calc(50% - 10px);
+            background: #0077cc;
+            color: white;
+            border: none;
             border-radius: 5px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            font-weight: bold;
+            padding: 10px;
+            text-align: center;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
-
-        button:hover {
-            background-color: #0056b3;
+        .option:hover {
+            background: #005fa3;
         }
-
-        .sports-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sports-list li {
-            background: #f0f8ff;
-            padding: 10px;
-            margin: 5px 0;
+        .progress-bar {
+            height: 20px;
+            background: #ddd;
             border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
         }
-
-        .contact {
-            background: #e9ecef;
-            padding: 10px;
+        .progress {
+            height: 100%;
+            width: 0;
+            background: #0077cc;
+            transition: width 0.3s ease;
+        }
+        .result {
+            display: none;
+            text-align: center;
+        }
+        .result p {
+            font-size: 18px;
+        }
+        .button {
+            background: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
             border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #005fa3;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Encuentra tu Deporte Ideal</h1>
-        <p>Responde algunas preguntas y descubre tu deporte perfecto</p>
-    </header>
 
-    <div class="container">
-        <!-- Formulario inicial -->
-        <div class="section" id="form-section">
-            <h2>Formulario de Preferencias</h2>
-            <form id="preferences-form">
-                <label for="name">Tu nombre:</label>
-                <input type="text" id="name" placeholder="Escribe tu nombre" required>
+<header>
+    <h1>Encuentra tu Deporte Ideal</h1>
+    <p>Responde estas preguntas para descubrir qué deporte es perfecto para ti</p>
+</header>
 
-                <label for="preference">¿Prefieres deportes individuales o en equipo?</label>
-                <select id="preference">
-                    <option value="">Selecciona una opción</option>
-                    <option value="individual">Individual</option>
-                    <option value="equipo">Equipo</option>
-                </select>
-
-                <label for="intensity">¿Qué nivel de intensidad prefieres?</label>
-                <select id="intensity">
-                    <option value="">Selecciona una opción</option>
-                    <option value="baja">Baja</option>
-                    <option value="media">Media</option>
-                    <option value="alta">Alta</option>
-                </select>
-
-                <button type="button" onclick="suggestSports()">Sugerir Deportes</button>
-            </form>
+<div class="container">
+    <div id="quiz">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
         </div>
-
-        <!-- Deportes sugeridos -->
-        <div class="section" id="suggestions-section" style="display: none;">
-            <h2>Top 3 Deportes para Ti</h2>
-            <ul class="sports-list" id="sports-list"></ul>
-        </div>
-
-        <!-- Contactos -->
-        <div class="section" id="contact-section" style="display: none;">
-            <h2>Contactos y Lugares para Practicar</h2>
-            <div class="contact">
-                <p><strong>Gimnasio Central:</strong> Avenida Principal, Tel: 123-456-789</p>
-                <p><strong>Club Deportivo:</strong> Calle Secundaria, Tel: 987-654-321</p>
-            </div>
-        </div>
-
-        <!-- Horarios -->
-        <div class="section" id="schedule-section" style="display: none;">
-            <h2>Horarios de Práctica</h2>
-            <p>Selecciona un horario conveniente:</p>
-            <select>
-                <option value="manana">Mañana: 7:00 AM - 9:00 AM</option>
-                <option value="tarde">Tarde: 4:00 PM - 6:00 PM</option>
-                <option value="noche">Noche: 7:00 PM - 9:00 PM</option>
-            </select>
+        <div class="question" id="question">¿Qué habilidad crees que mejor describe tu capacidad física actual?</div>
+        <div class="options" id="options">
+            <button class="option" onclick="selectOption('Resistencia')">Resistencia</button>
+            <button class="option" onclick="selectOption('Velocidad')">Velocidad</button>
+            <button class="option" onclick="selectOption('Fuerza')">Fuerza</button>
+            <button class="option" onclick="selectOption('Agilidad')">Agilidad</button>
+            <button class="option" onclick="selectOption('Reflejos')">Reflejos</button>
         </div>
     </div>
+    <div class="result" id="result">
+        <h2>¡Resultados!</h2>
+        <p id="result-text">Tu deporte ideal es...</p>
+        <button class="button" onclick="restartQuiz()">Intentar de nuevo</button>
+    </div>
+</div>
 
-    <script>
-        function suggestSports() {
-            const name = document.getElementById('name').value;
-            const preference = document.getElementById('preference').value;
-            const intensity = document.getElementById('intensity').value;
+<script>
+    const questions = [
+        "¿Qué habilidad crees que mejor describe tu capacidad física actual?",
+        "Si pudieras mejorar una de estas habilidades, ¿cuál elegirías?",
+        "¿Qué es lo que más disfrutas al practicar deporte?",
+        "¿Qué tipo de actividad prefieres para mantenerte activo/a?",
+        "¿Qué tipo de entorno prefieres para hacer ejercicio?",
+        "¿Qué intensidad prefieres para una actividad física?",
+        "¿Qué te motiva a continuar haciendo deporte regularmente?",
+        "¿Cómo prefieres organizar tu tiempo para practicar deporte?",
+        "¿Qué tipo de deporte te atrae más?",
+        "¿Qué aspecto del deporte consideras más importante para ti?"
+    ];
 
-            if (!name || !preference || !intensity) {
-                alert('Por favor, completa todos los campos.');
-                return;
-            }
+    const optionsPerQuestion = [
+        ["Resistencia", "Velocidad", "Fuerza", "Agilidad", "Reflejos"],
+        ["Explosividad", "Coordinación mano-ojo", "Resistencia", "Velocidad", "Agilidad"],
+        ["Competir y superar a los demás", "Trabajar en equipo", "Concentrarme en mí mismo/a", "Aprender cosas nuevas", "Relajarme y desconectar"],
+        ["Individual", "En equipo", "Mixto", "Competencias", "Recreativo"],
+        ["Al aire libre", "Espacios cerrados", "Mixto", "Ambientes dinámicos", "Cerca de casa"],
+        ["Baja", "Moderada", "Alta", "Variable", "No estoy seguro/a"],
+        ["Lograr metas personales", "Superarme cada día", "La diversión", "El trabajo en equipo", "La competencia"],
+        ["Con horarios fijos", "Con horarios flexibles", "En sesiones cortas", "Con sesiones largas", "De manera espontánea"],
+        ["De equipo", "De precisión", "De contacto", "De aventura", "De técnica y estética"],
+        ["Mejorar mi salud física", "Desarrollar habilidades sociales", "Sentirme mejor mentalmente", "Mejorar mis habilidades físicas", "Divertirme"]
+    ];
 
-            // Generar sugerencias (simplificado para el prototipo)
-            const sports = {
-                individual: {
-                    baja: ['Yoga', 'Pilates', 'Natación'],
-                    media: ['Ciclismo', 'Running', 'Artes Marciales'],
-                    alta: ['Escalada', 'CrossFit', 'Atletismo']
-                },
-                equipo: {
-                    baja: ['Bolos', 'Caminatas Grupales', 'Ping Pong'],
-                    media: ['Fútbol', 'Voleibol', 'Básquetbol'],
-                    alta: ['Hockey', 'Rugby', 'Waterpolo']
-                }
-            };
+    let currentQuestion = 0;
+    const answers = [];
 
-            const suggestedSports = sports[preference][intensity];
+    function loadQuestion() {
+        document.getElementById("question").textContent = questions[currentQuestion];
+        const optionsContainer = document.getElementById("options");
+        optionsContainer.innerHTML = "";
+        optionsPerQuestion[currentQuestion].forEach(option => {
+            const button = document.createElement("button");
+            button.className = "option";
+            button.textContent = option;
+            button.onclick = () => selectOption(option);
+            optionsContainer.appendChild(button);
+        });
+        document.getElementById("progress").style.width = ((currentQuestion + 1) / questions.length) * 100 + "%";
+    }
 
-            const sportsList = document.getElementById('sports-list');
-            sportsList.innerHTML = '';
-
-            suggestedSports.forEach(sport => {
-                const li = document.createElement('li');
-                li.textContent = sport;
-                sportsList.appendChild(li);
-            });
-
-            // Mostrar secciones relevantes
-            document.getElementById('suggestions-section').style.display = 'block';
-            document.getElementById('contact-section').style.display = 'block';
-            document.getElementById('schedule-section').style.display = 'block';
+    function selectOption(option) {
+        answers.push(option);
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            loadQuestion();
+        } else {
+            showResult();
         }
-    </script>
+    }
+
+    function showResult() {
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("result").style.display = "block";
+        document.getElementById("result-text").textContent = "Tus respuestas indican una alta afinidad con ciertos deportes. ¡Consulta los resultados detallados pronto!";
+    }
+
+    function restartQuiz() {
+        currentQuestion = 0;
+        answers.length = 0;
+        document.getElementById("result").style.display = "none";
+        document.getElementById("quiz").style.display = "block";
+        loadQuestion();
+    }
+
+    window.onload = loadQuestion;
+</script>
+
 </body>
 </html>

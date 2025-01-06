@@ -3,6 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin: 50px auto;
+        }
+        .menu-item {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 0 15px;
+            padding: 20px;
+            width: 200px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .menu-item h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .menu-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .section {
+            display: none;
+            padding: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Motívate con el Deporte</h1>
+    </header>
+
+    <!-- Menú principal -->
+<div class="menu" id="menu">
+    <div class="menu-item" onclick="showSection('survey')">
+        <img src="https://github.com/NoahWolfsbane/mi-pagina-web/raw/main/Encuesta.png" alt="Encuesta">
+        <h2>Encuesta</h2>
+    </div>
+    <div class="menu-item" onclick="showSection('routines')">
+        <img src="https://github.com/NoahWolfsbane/mi-pagina-web/raw/main/Smart.png" alt="Smart">
+        <h2>Rutinas de Entrenamiento</h2>
+    </div>
+    <div class="menu-item" onclick="showSection('pomodoro')">
+        <img src="https://github.com/NoahWolfsbane/mi-pagina-web/raw/main/Pomodoro.jpg" alt="Pomodoro">
+        <h2>Aprende Pomodoro</h2>
+    </div>
+</div>
+
+<!-- Correo abajo de todo -->
+<div class="footer">
+    <p>Contacto: <a href="mailto:jerlopez@espol.edu.ec">jerlopez@espol.edu.ec</a></p>
+        <p>Contacto telefónico:</p>
+    <p>
+        <a href="tel:+593995733309">099 573 3309</a> | 
+        <a href="tel:+593962600226">096 260 0226</a>
+</div>
+
+    </div>
+
+    <!-- Sección Encuesta -->
+    <div class="section" id="survey">
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sugerencias de Deportes</title>
     <style>
         body {
@@ -78,7 +179,6 @@
 </head>
 <body>
 
-    <!-- Encabezado -->
     <header>
         <h1>Encuentra el Deporte Ideal para Ti</h1>
         <!-- Foto de Hu Tao -->
@@ -211,6 +311,90 @@
                     environment: "Aire libre",
                     characteristics: { velocidad: 14, potencia: 12, concentración: 10, técnica: 8, otros: 6 }
                 },
+                {
+                    name: "Baloncesto",
+                    form: "Grupal",
+                    intensity: "Alta",
+                    environment: "Espacios cerrados",
+                    characteristics: { resistencia: 12, coordinación: 14, trabajoEnEquipo: 14, agilidad: 12, otros: 8 }
+                },
+                {
+                    name: "Tenis",
+                    form: "Individual",
+                    intensity: "Alta",
+                    environment: "Aire libre",
+                    characteristics: { resistencia: 10, fuerza: 12, precisión: 14, técnica: 12, otros: 6 }
+                },
+                {
+                    name: "Ciclismo",
+                    form: "Individual",
+                    intensity: "Moderada",
+                    environment: "Aire libre",
+                    characteristics: { resistencia: 14, velocidad: 12, disciplina: 10, equilibrio: 8, otros: 6 }
+                },
+                {
+                    name: "Gimnasia artística",
+                    form: "Mixto",
+                    intensity: "Alta",
+                    environment: "Espacios cerrados",
+                    characteristics: { flexibilidad: 14, coordinación: 14, fuerza: 12, agilidad: 12, otros: 6 }
+                },
+                {
+                    name: "Boxeo",
+                    form: "Individual",
+                    intensity: "Alta",
+                    environment: "Espacios cerrados",
+                    characteristics: { fuerza: 14, resistencia: 12, técnica: 10, estrategia: 10, otros: 8 }
+                },
+                {
+                    name: "Voleibol",
+                    form: "Grupal",
+                    intensity: "Moderada",
+                    environment: "Aire libre",
+                    characteristics: { coordinación: 12, trabajoEnEquipo: 14, estrategia: 12, agilidad: 10, otros: 8 }
+                },
+                {
+                    name: "Esgrima",
+                    form: "Individual",
+                    intensity: "Moderada",
+                    environment: "Espacios cerrados",
+                    characteristics: { precisión: 14, técnica: 12, estrategia: 10, velocidad: 10, otros: 8 }
+                },
+                {
+                    name: "Hockey",
+                    form: "Grupal",
+                    intensity: "Alta",
+                    environment: "Aire libre",
+                    characteristics: { resistencia: 12, velocidad: 14, trabajoEnEquipo: 14, técnica: 12, otros: 6 }
+                },
+                {
+                    name: "Yoga",
+                    form: "Individual",
+                    intensity: "Baja",
+                    environment: "Espacios cerrados",
+                    characteristics: { flexibilidad: 14, equilibrio: 12, disciplina: 10, relajación: 10, otros: 6 }
+                },
+                {
+                    name: "Arquería",
+                    form: "Individual",
+                    intensity: "Baja",
+                    environment: "Aire libre",
+                    characteristics: { precisión: 14, concentración: 14, técnica: 12, estrategia: 10, otros: 6 }
+                },
+                {
+                    name: "Rugby",
+                    form: "Grupal",
+                    intensity: "Alta",
+                    environment: "Aire libre",
+                    characteristics: { fuerza: 14, resistencia: 12, trabajoEnEquipo: 14, estrategia: 10, otros: 6 }
+                },
+                {
+                    name: "Karate",
+                    form: "Individual",
+                    intensity: "Moderada",
+                    environment: "Espacios cerrados",
+                    characteristics: { técnica: 14, coordinación: 12, fuerza: 12, agilidad: 10, otros: 8 }
+                }
                 // Resto de deportes se puede agregar aquí siguiendo el mismo patrón
             ];
 
@@ -247,12 +431,304 @@
 
             // Mostrar resultados
             let resultHTML = "<h3>Deportes recomendados:</h3><ul class='sport-list'>";
-            results.forEach(sport => {
+            results.slice(0, 3).forEach(sport => {
                 resultHTML += `<li>${sport.name} - Afinidad: ${sport.affinity}%</li>`;
             });
+
             resultHTML += "</ul>";
 
             document.getElementById("result").innerHTML = resultHTML;
+        }
+    </script>
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Sección Rutinas de Entrenamiento -->
+    <div class="section" id="routines">
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Routines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #444;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        .level {
+            margin-bottom: 2rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fitness Routines: 3 Levels of Difficulty</h1>
+    </header>
+    <div class="container">
+
+        <!-- Beginner Level -->
+        <div class="level">
+            <h2>Level 1: Beginner</h2>
+            <p><strong>Objective:</strong> Build a base, improve mobility and endurance.</p>
+            <p><strong>Frequency:</strong> 3-4 days per week. <strong>Duration:</strong> 30-40 minutes.</p>
+            <h3>Strength (3 rounds, 12-15 repetitions each exercise):</h3>
+            <ul>
+                <li>Bodyweight Squats</li>
+                <li>Incline Push-ups</li>
+                <li>Glute Bridges</li>
+                <li>Superman (lower back)</li>
+            </ul>
+            <h3>Cardio (10-15 minutes):</h3>
+            <ul>
+                <li>March in place with high knees (1 minute)</li>
+                <li>Jumping Jacks</li>
+                <li>Shadow Boxing</li>
+            </ul>
+            <h3>Flexibility (5-10 minutes):</h3>
+            <ul>
+                <li>Cat-Cow Stretch</li>
+                <li>Seated Hamstring Stretch</li>
+                <li>Child's Pose</li>
+            </ul>
+        </div>
+
+        <!-- Intermediate Level -->
+        <div class="level">
+            <h2>Level 2: Intermediate</h2>
+            <p><strong>Objective:</strong> Enhance strength, endurance, and coordination.</p>
+            <p><strong>Frequency:</strong> 4-5 days per week. <strong>Duration:</strong> 40-50 minutes.</p>
+            <h3>Strength (4 rounds, 10-12 repetitions each exercise):</h3>
+            <ul>
+                <li>Sumo Squats (with weight or backpack)</li>
+                <li>Standard Push-ups</li>
+                <li>Plank with alternate arm raises (30-40 seconds)</li>
+                <li>Single-leg Deadlift (light weight)</li>
+            </ul>
+            <h3>Cardio (15-20 minutes):</h3>
+            <ul>
+                <li>Burpees without jump (10 repetitions)</li>
+                <li>High knees running in place</li>
+                <li>Mountain Climbers</li>
+            </ul>
+            <h3>Flexibility (5-10 minutes):</h3>
+            <ul>
+                <li>Downward Dog</li>
+                <li>Thoracic Spine Rotation (on all fours)</li>
+                <li>Standing Quad Stretch</li>
+            </ul>
+        </div>
+
+        <!-- Advanced Level -->
+        <div class="level">
+            <h2>Level 3: Advanced</h2>
+            <p><strong>Objective:</strong> Maximize strength, endurance, and mobility.</p>
+            <p><strong>Frequency:</strong> 5-6 days per week. <strong>Duration:</strong> 50-60 minutes.</p>
+            <h3>Strength (5 rounds, 8-10 repetitions each exercise, increase weight if possible):</h3>
+            <ul>
+                <li>Jump Squats</li>
+                <li>Clap Push-ups</li>
+                <li>Pull-ups or Inverted Rows</li>
+                <li>Side Plank with lateral movement</li>
+            </ul>
+            <h3>Cardio (20-30 minutes, high intensity):</h3>
+            <ul>
+                <li>Full Burpees (15 repetitions)</li>
+                <li>Box Jumps or high step-ups</li>
+                <li>20-second sprints, 10-second rest (8 rounds, Tabata)</li>
+            </ul>
+            <h3>Flexibility (10-15 minutes):</h3>
+            <ul>
+                <li>Pigeon Pose</li>
+                <li>Dynamic Hip Stretch (lunges with rotation)</li>
+                <li>Shoulder and Chest Stretch against a wall</li>
+            </ul>
+        </div>
+
+    </div>
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Sección Aprende Pomodoro -->
+    <div class="section" id="pomodoro" align="center">
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Consejos - Exercise Pomodoro</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header p {
+            font-size: 14px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #ffffe0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+        </style>
+        </head>
+    <body>
+
+        <div class="header">
+            <h1>CONSEJOS</h1>
+            <p>En este apartado aparecen consejos basados en tu progreso y deporte escogido, para inspirarte en tu rutina.</p>
+        </div>
+
+        <div class="container" align="center">
+            <!-- Card 1 -->
+            <div class="card">
+                <h2>01</h2>
+                <h3>'Recuerda por qué empezaste.'</h3>
+                <p>En los momentos difíciles, vuelve a conectar con la razón que te llevó a practicar tu deporte. Esa pasión y propósito son tu combustible.</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Card 2 -->
+            <div class="card" align="cent">
+                <h2>02</h2>
+                <h3>'Los límites solo existen en tu mente.'</h3>
+                <p>Tu cuerpo es más fuerte de lo que crees. Si te atreves a desafiar tus propios límites, te sorprenderás de lo que eres capaz.</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <h2>03</h2>
+                <h3>'Compite contigo mismo, no con los demás.'</h3>
+                <p>Tu verdadero rival eres tú mismo. Enfócate en mejorar un poco más cada día, y el resto llegará por añadidura.</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <h2>04</h2>
+                <h3>'Cada caída es una lección, no un fracaso.'</h3>
+                <p>Aprende de cada error, levántate más fuerte y sigue adelante. Lo importante no es cuántas veces caigas, sino cuántas te levantes con más determinación.</p>
+            </div>
+        </div>
+
+    </body>
+    </html>
+
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Ocultar el menú principal
+            document.getElementById('menu').style.display = 'none';
+
+            // Mostrar la sección seleccionada
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function showMenu() {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Mostrar el menú principal
+            document.getElementById('menu').style.display = 'flex';
         }
     </script>
 
